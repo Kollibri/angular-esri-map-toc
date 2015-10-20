@@ -1,2 +1,2 @@
 # angular-esri-map-toc
-A table of contents directive for use as a plugin to the angular-esri-map library.
+A table of contents directive for use as a plugin to the https://github.com/Esri/angular-esri-map library.
