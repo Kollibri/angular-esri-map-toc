@@ -11,7 +11,7 @@ Then include the module in your angular dependencies as ```esri.map.toc```
 
 Example usage:
 
-[Example](http://kollibri.github.io/angular-esri-map-toc/)
+[Demo](http://kollibri.github.io/angular-esri-map-toc/)
 
 
 ![App](https://raw.github.com/Kollibri/angular-esri-map-toc/master/angular-esri-map-toc.png)
