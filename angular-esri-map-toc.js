@@ -1,6 +1,6 @@
 (function(angular) {
     'use strict';
-    angular.module('esriToc')
+    angular.module('esri.map.toc', [])
         .directive('esriToc', ['$document', '$q', '$compile', '$http', function($document, $q, $compile, $http) {
             return {
                 restrict: 'E',
