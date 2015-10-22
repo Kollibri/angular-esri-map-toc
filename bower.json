@@ -1,14 +1,14 @@
 {
   "name": "angular-esri-map-toc",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "homepage": "https://github.com/Kollibri/angular-esri-map-toc",
   "authors": [
     "kollibri <mander77@gmail.com>"
   ],
   "description": "A table of contents directive for use as a plugin to the https://github.com/Esri/angular-esri-map library.",
   "main": [
-    "angular-esri-map-toc.js",
-    "angular-esri-map-toc.css"
+    "dist/angular-esri-map-toc.js",
+    "dist/angular-esri-map-toc.css"
   ],
   "moduleType": [],
   "keywords": [
@@ -29,5 +29,15 @@
     "angular": "^1.3.0",
     "bootstrap": "~3.3.5",
     "angular-esri-map": "~1.0.0-beta.5"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
+        "dist/fonts/*.*",
+        "less/bootstrap.less"
+      ]
+    }
   }
 }

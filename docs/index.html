@@ -1,19 +1,3 @@
-# angular-esri-map-toc
-A table of contents directive for use as a plugin to the [angular-esri-map](https://github.com/Esri/angular-esri-map) library.
-
-To use this directive in your project, add it using bower:
-```bash
-# install via bower
-bower install angular-esri-map-toc
-```
-
-Then include the module in your angular dependencies as ```esri.map.toc```
-
-Example usage:
-
-[Example](http://kollibri.github.io/angular-esri-map-toc/)
-
-```html
 <!DOCTYPE html>
 <html ng-app="esri-map-example">
 
@@ -25,11 +9,11 @@ Example usage:
     <!-- load Esri CSS -->
     <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.11/esri/css/esri.css">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Latest bootstrap CSS -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
 
     <!-- load angular-esri-map-toc css -->
-    <script src="bower_components/angular-esri-map-toc/angular-esri-map-toc.css"></script>
+    <link rel="stylesheet" type="text/css" href="lib/angular-esri-map-toc.css">
 </head>
 
 <body ng-controller="MapController">
@@ -51,11 +35,11 @@ Example usage:
     <!-- load Esri JavaScript API -->
     <script type="text/javascript" src="http://js.arcgis.com/3.11compact"></script>
     <!-- load Angular -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
+    <script src="lib/angular/angular.js"></script>
     <!-- load angular-esri-map directives -->
-    <script src="bower_components/angular-esri-map/angular-esri-map.js"></script>
+    <script src="lib/angular-esri-map/dist/angular-esri-map.js"></script>
     <!-- load angular-esri-map-toc directive -->
-    <script src="bower_components/angular-esri-map-toc/angular-esri-map-toc.js"></script>
+    <script src="lib/angular-esri-map-toc.js"></script>
     <!-- run example app controller -->
     <script type="text/javascript">
         angular.module('esri-map-example', ['esri.map', 'esri.map.toc'])
@@ -72,5 +56,3 @@ Example usage:
 </body>
 
 </html>
-
-```
