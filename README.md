@@ -26,7 +26,7 @@ Example usage:
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- load angular-esri-map-toc css -->
-    <script src="angular-esri-map-toc.css"></script>
+    <script src="bower_components/angular-esri-map-toc/angular-esri-map-toc.css"></script>
 </head>
 
 <body ng-controller="MapController">
@@ -49,11 +49,13 @@ Example usage:
     <script type="text/javascript" src="http://js.arcgis.com/3.11compact"></script>
     <!-- load Angular -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
+    <!-- load angular-esri-map directives -->
+    <script src="bower_components/angular-esri-map/angular-esri-map.js"></script>
     <!-- load angular-esri-map-toc directive -->
-    <script src="angular-esri-map-toc.js"></script>
+    <script src="bower_components/angular-esri-map-toc/angular-esri-map-toc.js"></script>
     <!-- run example app controller -->
     <script type="text/javascript">
-        angular.module('esri-map-example', ['esri.map'])
+        angular.module('esri-map-example', ['esri.map', 'esri.map.toc'])
             .controller('MapController', function($scope) {
                 $scope.map = {
                     center: {
