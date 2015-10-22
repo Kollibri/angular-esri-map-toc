@@ -9,7 +9,13 @@ bower install angular-esri-map-toc
 
 Then include the module in your angular dependencies as ```esri.map.toc```
 
-Example usage:
+
+
+Example:
+
+![App](https://raw.github.com/Kollibri/angular-esri-map-toc/master/angular-esri-map-toc.png)
+
+
 ```html
 <!DOCTYPE html>
 <html ng-app="esri-map-example">
