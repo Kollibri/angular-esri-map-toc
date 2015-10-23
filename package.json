@@ -43,5 +43,8 @@
   "bugs": {
     "url": "https://github.com/Kollibri/angular-esri-map-toc/issues"
   },
-  "homepage": "https://github.com/Kollibri/angular-esri-map-toc#readme"
+  "homepage": "https://github.com/Kollibri/angular-esri-map-toc#readme",
+  "dependencies": {
+    "wiredep": "^2.2.2"
+  }
 }

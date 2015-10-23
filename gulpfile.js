@@ -14,6 +14,8 @@ var deploy = require('gulp-gh-pages');
 var angularProtractor = require('gulp-angular-protractor');
 var minifyCss = require('gulp-minify-css');
 var mainBowerFiles = require('main-bower-files');
+var wiredep = require('wiredep').stream;
+
 // source directives and services
 var srcJsFiles = 'src/**/*.js';
 
@@ -30,7 +32,7 @@ gulp.task('lint', function() {
 // clean built copies of javascript files
 // from dist folder and docs
 gulp.task('clean', function() {
-  return gulp.src(['dist', 'docs/lib'])
+  return gulp.src(['docs/dist'])
     .pipe(clean({force: true}));
 });
 
@@ -40,13 +42,12 @@ gulp.task('build-js', function() {
   return gulp.src([
     'src/angular-esri-map-toc.js'])
     .pipe(concat('angular-esri-map-toc.js'))
-    .pipe(gulp.dest('dist'))
-    .pipe(gulp.dest('docs/lib'))
+    .pipe(gulp.dest('docs/dist'))
     .pipe(stripDebug())
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(rename('angular-esri-map-toc.min.js'))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('docs/dist'))
     .on('error', gutil.log);
 });
 
@@ -56,23 +57,27 @@ gulp.task('build-css', function() {
   return gulp.src([
     'src/angular-esri-map-toc.css'])
     .pipe(concat('angular-esri-map-toc.css'))
-    .pipe(gulp.dest('dist'))
-    .pipe(gulp.dest('docs/lib'))
+    .pipe(gulp.dest('docs/dist'))
     .pipe(minifyCss())
     .pipe(rename('angular-esri-map-toc.min.css'))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('docs/dist'))
     .on('error', gutil.log);
 });
 
 
-gulp.task('bower-files', function() {
-    return gulp.src(mainBowerFiles(/* options */), { base: './bower_components' })
-        .pipe(gulp.dest('docs/lib'));
+gulp.task('bower', function () {
+  gulp.src('./docs/*.html')
+    .pipe(wiredep({
+      includeSelf: true,
+      exclude: [ /jquery/, 'bower_components/bootstrap/dist/js/bootstrap.js' ],
+    }))
+    .pipe(gulp.dest('./docs'));
 });
+
 
 // lint then clean and build javascript
 gulp.task('build', function(callback) {
-  runSequence('lint', 'clean', 'build-js', 'build-css', 'bower-files', callback);
+  runSequence('lint', 'clean', 'build-js', 'build-css', 'bower', callback);
 });
 
 // serve docs and tests on local web server
@@ -97,7 +102,7 @@ gulp.task('serve-test', ['build'], function() {
     server: {
       baseDir: 'test',
       routes: {
-        '/lib': 'docs/lib'
+        '/dist': 'docs/dist'
       }
     },
     open: false,
