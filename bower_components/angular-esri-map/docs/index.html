@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html ng-app="esri-map-docs">
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Angular Esri Map</title>
+
+    <!-- load bootstrap css -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/narrow.css">
+
+    <!-- code snippet syntax highlighting -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/monokai_sublime.min.css">
+
+    <!-- load Esri CSS -->
+    <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.14/esri/css/esri.css">
+
+    <!-- custom styles for this app -->
+    <style type="text/css">
+        .jumbotron {
+            background: #091926 url('images/jumbotron-background.jpg') no-repeat right;
+            color: #fff;
+        }
+        .map {
+            margin-bottom: 10px;
+        }
+        .tab-container {
+            padding-top: 1em;
+        }
+
+        /* overrides for narrow theme */
+        @media (min-width: 768px) {
+          .container {
+            max-width: 950px;
+          }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- page header -->
+        <div class="header">
+            <ul class="nav nav-pills pull-right" role="tablist" ng-controller="NavCtrl">
+                <li role="presentation" ng-class="{ active: page === 'examples' }"><a ng-href="#/examples">Examples</a>
+                </li>
+                <li role="presentation" ng-class="{ active: page === 'about' }"><a ng-href="#/about">About</a>
+                </li>
+                <li role="presentation"><a href="http://github.com/esri/angular-esri-map">GitHub</a>
+                </li>
+            </ul>
+            <h3 class="text-muted">angular-esri-map</h3>
+        </div>
+
+        <!-- page content -->
+        <div ng-view=""></div>
+
+        <!-- source code snippets -->
+        <div ng-controller="SnippetsCtrl">
+            <ul ng-show="tabs" class="nav nav-tabs" ng-select ng-model="currentTab" select-class="{'active': $optSelected}">
+                <li ng-repeat="tab in tabs" ng-select-option="tab">
+                    <a href="">{{ tab }}</a>
+                </li>
+            </ul>
+            <div class="tab-container">
+                <div ng-repeat="tab in tabs">
+                  <div ng-if="tab == currentTab" hljs="" include="currentTab"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- page footer -->
+        <div class="footer">
+            <p><span class="glyphicon glyphicon-heart"></span> from Esri</p>
+        </div>
+    </div><!-- /container -->
+
+    <!-- load Esri JavaScript API -->
+    <!-- NOTE: defer is only needed b/c of UMD blocks in highlight.min.js -->
+    <script defer type="text/javascript" src="http://js.arcgis.com/3.14compact"></script>
+
+    <!-- load Angular -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-sanitize.js"></script>
+
+    <!-- code snippet syntax highlighting -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script src="http://pc035860.github.io/ngSelect/ngSelect.min.js"></script>
+    <script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
+
+    <!-- load angular-esri-map module -->
+    <script src="lib/angular-esri-map.js"></script>
+
+    <!-- load this app -->
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/appConfig.js"></script>
+    <script type="text/javascript" src="app/about/about.js"></script>
+    <script type="text/javascript" src="app/common/pathService.js"></script>
+    <script type="text/javascript" src="app/common/nav.js"></script>
+    <script type="text/javascript" src="app/examples/snippets.js"></script>
+    <script type="text/javascript" src="app/examples/examples.js"></script>
+    <script type="text/javascript" src="app/examples/simple-map.js"></script>
+    <script type="text/javascript" src="app/examples/web-map.js"></script>
+    <script type="text/javascript" src="app/examples/feature-layers.js"></script>
+    <script type="text/javascript" src="app/examples/dynamic-map-service-layer.js"></script>
+    <script type="text/javascript" src="app/examples/legend.js"></script>
+    <script type="text/javascript" src="app/examples/add-remove-layers.js"></script>
+    <script type="text/javascript" src="app/examples/set-basemap.js"></script>
+    <script type="text/javascript" src="app/examples/set-center-zoom.js"></script>
+    <script type="text/javascript" src="app/examples/map-events.js"></script>
+    <script type="text/javascript" src="app/examples/layer-events.js"></script>
+    <script type="text/javascript" src="app/examples/registry-pattern.js"></script>
+    <script type="text/javascript" src="app/examples/additional-map-options.js"></script>
+    <script type="text/javascript" src="app/examples/no-basemap.js"></script>
+    <script type="text/javascript" src="app/examples/other-esri-modules.js"></script>
+
+    <!-- google analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60363466-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
