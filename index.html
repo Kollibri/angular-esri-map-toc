@@ -21,8 +21,8 @@
   <div class="container row">
     <div class="col-xs-9">
       <esri-map id="map" center="map.center" zoom="map.zoom" basemap="topo" style="width: 100%">
-        <esri-dynamic-map-service-layer layer-options="{id: 'network'}" title="Network Analysis" url="http://sampleserver5.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/MapServer" visible="true" opacity="1.0" toc-layers="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20"
-        visible-layers="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20" />
+        <esri-dynamic-map-service-layer layer-options="{id: 'structures'}" title="Structures" url="http://services.nationalmap.gov/arcgis/rest/services/structures/MapServer" visible="true" opacity="1.0" toc-layers="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"
+        visible-layers="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"/>
         <esri-toc tree-id="TOC1" map-id="map" target-id="toc" root-node="true">
         </esri-toc>
       </esri-map>
@@ -45,10 +45,10 @@
       .controller('MapController', function($scope) {
         $scope.map = {
           center: {
-            lng: -117.039,
-            lat: 32.703
+            lng: -84.559,
+            lat: 42.730
           },
-          zoom: 11
+          zoom: 14
         };
       });
   </script>
