@@ -204,9 +204,10 @@
                                                     if (indexOfMatchingLayer !== -1) {
                                                         currentVisibleLayers.splice(indexOfMatchingLayer, 1);
                                                         //When removing child layer, remove group layer.
-                                                        if (currentLayer.layerInfos[indexOfMatchingLayer].parentLayerId !== -1)
+                                                        var parentLayerIndex = currentVisibleLayers.indexOf(currentLayer.layerInfos[indexOfMatchingLayer].parentLayerId);
+                                                        if (parentLayerIndex !== -1)
                                                         {
-                                                            currentVisibleLayers.splice(currentLayer.layerInfos[indexOfMatchingLayer].parentLayerId, 1);
+                                                            currentVisibleLayers.splice(parentLayerIndex, 1);
                                                         }
                                                     } else {
                                                         if (!layer.isParent && selectedNode.checked && layer.checked && layer.parentsChecked) {
